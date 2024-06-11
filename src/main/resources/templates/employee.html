@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/employee.css" />
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Employee Dashboard</h1>
+    </div>
+    <div class="dashboard-content">
+        <p>Welcome to the employee dashboard. Here you'll find all the relevant information and tools you need.</p>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="callModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+            <h2>Incoming Call</h2>
+        </div>
+        <div class="modal-body">
+            <div class="caller-name">John Doe</div>
+            <div class="button-group">
+                <button class="answer-button">Answer</button>
+                <button class="decline-button">Decline</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/employee.js"></script>
+</body>
+</html>
