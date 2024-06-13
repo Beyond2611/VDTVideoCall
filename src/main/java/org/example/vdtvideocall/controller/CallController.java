@@ -7,9 +7,11 @@ import org.example.vdtvideocall.payload.response.CallResponse;
 import org.example.vdtvideocall.services.CallHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@CrossOrigin(origins = "192.168.1.3:8000")
+@Controller
 @RequestMapping("/call")
 public class CallController {
     private CallHandlerService callHandlerService;
@@ -26,5 +28,9 @@ public class CallController {
     @PostMapping("/endcall/{callInfoId}")
     public ResponseEntity<CallEndedResponse> endCall(@PathVariable String callInfoId) {
         return ResponseEntity.ok(callHandlerService.endCall(callInfoId));
+    }
+    @GetMapping("/room")
+    public String callPopup(){
+        return "callPopup";
     }
 }

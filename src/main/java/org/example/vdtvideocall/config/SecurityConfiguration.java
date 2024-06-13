@@ -23,20 +23,21 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf()
+        http.cors().disable()
+                .csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/employee/**")
                 .permitAll()
                 .requestMatchers("/**")
-                .permitAll();
+                .permitAll();;
         return http.build();
     }
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://localhost:8005"));
+        configuration.setAllowedOrigins(List.of("http://192.168.1.3:8080", "http://192.168.1.3:8000", "http://localhost:8080", "http://localhost:8000","https://192.168.1.3:8000", "https://192.168.1.3:8443" ));
         configuration.setAllowedMethods(List.of("GET","POST"));
         configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
 

@@ -47,6 +47,7 @@ public class SocketHandler {
 
     @OnEvent("joinRoom")
     public void onJoinRoom(SocketIOClient client, String room) {
+        System.out.println("Client joined: " + client.getSessionId());
         int connectedClients = server.getRoomOperations(room).getClients().size();
         if (connectedClients == 0) {
             client.joinRoom(room);

@@ -3,10 +3,10 @@ services:
     image: 'mongo:latest'
     environment:
       - 'MONGO_INITDB_DATABASE=VDT'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=mongoadmin'
     ports:
       - '27017'
+    networks:
+      - vdt
   rabbitmq:
     image: 'pcloud/rabbitmq-stomp:latest'
     environment:
@@ -16,3 +16,38 @@ services:
       - '5672:5672'
       - '15672:15672'
       - '61613:61613'
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    networks:
+      - vdt
+  vdtvideocall:
+    image: vdt/videocall
+    environment:
+      - 'MONGO_INITDB_DATABASE=VDT'
+    ports:
+      - '8443:8443'
+    depends_on:
+      mongodb:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - vdt
+  nginx:
+    image: nginx
+    depends_on:
+      - vdtvideocall
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./ssl:/etc/nginx/ssl
+    networks:
+      - vdt
+networks:
+  vdt:
+    driver: bridge
