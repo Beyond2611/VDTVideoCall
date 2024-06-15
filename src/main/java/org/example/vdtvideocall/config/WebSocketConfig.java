@@ -29,9 +29,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                 new com.corundumstudio.socketio.Configuration();
         config.setHostname(host);
         config.setPort(8000);
-        InputStream stream = getClass().getClassLoader().getResourceAsStream("/keystore/springboot.jks");
-        config.setKeyStore(stream);
-        config.setKeyStorePassword("password");
+        //InputStream stream = getClass().getClassLoader().getResourceAsStream("/keystore/springboot.jks");
+        //config.setKeyStore(stream);
+        //config.setKeyStorePassword("password");
         return new SocketIOServer(config);
     }
 

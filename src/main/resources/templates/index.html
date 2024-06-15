@@ -1,32 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage with Customer Support Button</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .support-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    </style>
+    <meta charset="utf8" />
+    <title>the form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <div class="mx-auto w-4/5">
+        <form method="POST" action="data_here" onsubmit="">
+            <table class="w-full">
+                <tbody>
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Tên khách hàng
+                        </th>
+                        <td>
+                            <input required name="name" type="text" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
 
-<button class="support-button">Customer Support</button>
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Số điện thoại
+                        </th>
+                        <td>
+                            <input required name="phone" type="tel" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
 
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Số CCCD
+                        </th>
+                        <td>
+                            <input required name="id_num" type="text" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
+
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Quê quán
+                        </th>
+                        <td>
+                            <input required name="origin" type="text" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
+
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Nơi sinh
+                        </th>
+                        <td>
+                            <input required name="birthplace" type="text" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
+
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Ngày sinh
+                        </th>
+                        <td>
+                            <input required name="birthplace" type="date" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
+
+                    <tr class="hover:bg-gray-300">
+                        <th class="px-3 text-left">
+                            Địa chỉ thường trú
+                        </th>
+                        <td>
+                            <input required name="home" type="text" class="w-full border border-black rounded-md px-2 py-1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pt-4 flex flex-col gap-2">
+                <h3 class="text-center font-bold">
+                    Ảnh CCCD
+                </h3>
+                <table class="w-full">
+                    <tbody>
+                        <tr class="hover:bg-gray-300">
+                            <th class="px-3 text-left">
+                                Mặt trước
+                            </th>
+                            <td>
+                                <input required name="id_front" type="file" accept="image/png, image/jpeg" class="w-full border border-black rounded-md px-2 py-1" />
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-300">
+                            <th class="px-3 text-left">
+                                Mặt sau
+                            </th>
+                            <td>
+                                <input required name="id_back" type="file" accept="image/png, image/jpeg" class="w-full border border-black rounded-md px-2 py-1" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center pt-10">
+                <button type="submit" class="border border-black px-4 py-2 rounded-md">
+                    Gửi
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
-</html>
