@@ -75,7 +75,7 @@ public class CallHandlerService {
                 callResponse.setId(callInfo.getCallId());
                 callResponse.setEmployeeId(employee.getId());
                 callResponse.setRoomKey(callInfo.getRoomKey());
-                messagingTemplate.convertAndSend("/topic/" + employee.getId(), callResponse);
+                messagingTemplate.convertAndSend("/topic/id=" + employee.getId(), callResponse);
             });
         });
     }

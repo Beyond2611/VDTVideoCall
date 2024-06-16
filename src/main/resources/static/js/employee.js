@@ -10,13 +10,15 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
+
+var ansButton = document.getElementById("ansBtn");
 var stompClient = null;
 var socket = new SockJS('/ws');
 stompClient = Stomp.over(socket);
 stompClient.connect({}, connectionSuccess);
 function connectionSuccess() {
     console.log("connection success")
-    stompClient.subscribe('/topic/' + window.location.pathname.substring(10), onMessageReceived);
+    stompClient.subscribe('/topic/' + window.location.search.substring(1), onMessageReceived);
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -24,8 +26,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+var message;
 function onMessageReceived(payload) {
-    var message = JSON.parse(payload.body);
+    message = JSON.parse(payload.body);
+    document.getElementById("callName").innerHTML = message.Id;
     console.log(message);
     modal.style.display = "block";
+}
+
+ansButton.onclick = function (){
+    window.open('https://192.168.1.200/call/room?id=' + message.roomKey,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1000,height=600');
+    modal.style.display = "none";
 }

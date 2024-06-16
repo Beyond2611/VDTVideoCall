@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="employee.css" />
+    <link rel="stylesheet" type="text/css" href="/css/employee.css" />
 </head>
 <body>
 
@@ -25,16 +25,16 @@
             <h2>Incoming Call</h2>
         </div>
         <div class="modal-body">
-            <div class="caller-name">John Doe</div>
+            <div class="caller-name" id="callName">John Doe</div>
             <div class="button-group">
-                <button class="answer-button">Answer</button>
-                <button class="decline-button">Decline</button>
+                <button class="answer-button" id="ansBtn">Answer</button>
+                <button class="decline-button" id="decBtn">Decline</button>
             </div>
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script src="employee.js"></script>
+<script src="/js/employee.js"></script>
 </body>
 </html>

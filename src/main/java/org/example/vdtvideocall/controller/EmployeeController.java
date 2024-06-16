@@ -22,14 +22,14 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-    @PostMapping("create")
+    @PostMapping("/create")
     ResponseEntity<Employee> createEmployee(@RequestBody EmployeeCreateRequest employeeCreateRequest) {
         Employee employee = employeeService.create(employeeCreateRequest);
         return ResponseEntity.ok(employee);
     }
 
-    @GetMapping("/{id}")
-    public String employee(@PathVariable String id, Model model){
+    @GetMapping("")
+    public String employee(@RequestParam String id, Model model){
         Optional<Employee> employee = employeeService.getEmployeeById(id);
         if(employee.isPresent()){
             employeeService.updateEmployeeStatus(employee.get().getId(), Employee.Status.AVAILABLE);
@@ -37,5 +37,4 @@ public class EmployeeController {
         }
         return "employee";
     }
-
 }

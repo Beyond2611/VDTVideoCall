@@ -52,7 +52,13 @@ function toggleTrack(trackType) {
     icon.classList.toggle("bi-mic-mute-fill", trackType === "audio" && !enabled);
 }
 
-btnConnect.onclick = () => {
+window.onload = function () {
+    roomName = window.location.search.substr(1);
+    socket.emit("joinRoom", roomName);
+    divRoomConfig.classList.add("d-none");
+    roomDiv.classList.remove("d-none");
+};
+/*btnConnect.onclick = () => {
     if (roomNameInput.value === "") {
         alert("Room can not be null!");
     } else {
@@ -61,7 +67,7 @@ btnConnect.onclick = () => {
         divRoomConfig.classList.add("d-none");
         roomDiv.classList.remove("d-none");
     }
-};
+};*/
 
 const handleSocketEvent = (eventName, callback) => socket.on(eventName,
     callback);
