@@ -1,3 +1,4 @@
+let LOCAL_IP = "192.168.1.200";
 function create_UUID() {
     var dt = new Date().getTime();
     return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -13,7 +14,7 @@ form.onsubmit = function(event){
     var xhr = new XMLHttpRequest();
     var formData = new FormData(form);
     //open the request
-    xhr.open('POST','https://192.168.1.200/call/dispatch')
+    xhr.open('POST',"https://" + LOCAL_IP + "/call/dispatch")
     xhr.setRequestHeader("Content-Type", "application/json");
 
     //send the form data
@@ -26,9 +27,10 @@ form.onsubmit = function(event){
     xhr.send(JSON.stringify(payload));
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            window.location.replace("call/room?id=" + payload.callerRoomKey);
+            window.location.href = "response?room=" + payload.callerRoomKey;
         }
     }
     //Fail the onsubmit to avoid page refresh.
     return false;
 }
+var submitBtn = document.getElementById("submitBtn");

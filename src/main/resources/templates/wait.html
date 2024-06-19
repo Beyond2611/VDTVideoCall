@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf8" />
+    <title>the form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="h-screen flex flex-col justify-between" id="waitDiv">
+    <div></div>
+    <div class="w-full text-center flex flex-col items-center">
+        <div class="text-3xl bg-gray-300 py-4 px-6 rounded-full w-fit">
+            ↺
+        </div>
+        <br />
+        Vui lòng chờ trong khi thông tin của qúy khách đang được kiểm duyệt
+    </div>
+    <div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src = "/js/wait.js"></script>
+</body>

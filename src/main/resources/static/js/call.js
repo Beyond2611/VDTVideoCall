@@ -25,7 +25,10 @@ const streamConstraints = {audio: true, video: true};
 let socket = io.connect(`https://${LOCAL_IP_ADDRESS}`, {secure: true});
 //console.log('https://${LOCAL_IP_ADDRESS)}:8000';)
 //let socket = io.connect("https://192.168.1.3:8000", {secure : true});
-
+let btnEndCall = document.getElementById("endcall");
+btnEndCall.onclick = function (){
+    window.close();
+}
 btnToggleVideo.addEventListener("click", () => toggleTrack("video"));
 btnToggleAudio.addEventListener("click", () => toggleTrack("audio"));
 

@@ -3,6 +3,7 @@ package org.example.vdtvideocall.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.vdtvideocall.payload.request.CallRequest;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,4 +25,5 @@ public class CallInfo {
     private String roomKey;
     private boolean inProgress;
     private boolean isQueued;
+    private CallRequest callRequest;
 }

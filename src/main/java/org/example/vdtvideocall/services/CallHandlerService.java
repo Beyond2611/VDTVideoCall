@@ -45,6 +45,8 @@ public class CallHandlerService {
         // create call info object in the db
         CallInfo callInfo = new CallInfo();
         callInfo.setReceivedAt(Instant.now());
+        callRequest.setCallId(callInfo.getCallId());
+        callInfo.setCallRequest(callRequest);
         callInfo.setQueued(true);
         callInfo.setRoomKey(callRequest.getCallerRoomKey());
         CallInfo savedCallInfo = callRepository.save(callInfo);
@@ -75,7 +77,9 @@ public class CallHandlerService {
                 callResponse.setId(callInfo.getCallId());
                 callResponse.setEmployeeId(employee.getId());
                 callResponse.setRoomKey(callInfo.getRoomKey());
-                messagingTemplate.convertAndSend("/topic/id=" + employee.getId(), callResponse);
+                CallRequest callRequest = callInfo.getCallRequest();
+                callRequest.setCallId(callInfo.getCallId());
+                messagingTemplate.convertAndSend("/topic/id=" + employee.getId(), callInfo.getCallRequest());
             });
         });
     }

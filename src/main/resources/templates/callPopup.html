@@ -13,10 +13,6 @@
     <link rel="stylesheet" type="text/css" href="/css/call.css" />
 </head>
 <body>
-<h1 style="text-align: center; margin: 15px 10px 30px 10px">
-    WebRTC Spring Boot
-</h1>
-
 <div id="roomConfig" class="d-flex justify-content-center mb-3">
     <div class="input-group input-group-lg" style="max-width: 400px">
         <input
@@ -35,8 +31,8 @@
     <div
             id="remoteVideoContainer"
             style="
-          width: 600px;
-          height: 450px;
+          width: 800px;
+          height: 600px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -56,6 +52,9 @@
         </button>
         <button id="toggleAudio" class="btn-circle enabled-style">
             <i id="audioIcon" class="bi bi-mic-fill"></i>
+        </button>
+        <button id="endcall" class="btn-circle disabled-style">
+            <i id="endIcon" class="bi bi-telephone"></i>
         </button>
     </div>
 
